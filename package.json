@@ -1,0 +1,15 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "A collection of documentations about the things I made",
+  "main": "index.js",
+  "scripts": {
+    "check-update": "npx --yes npm-check-updates",
+    "dev": "docsify serve ./docs --port 80",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TetraTheta",
+  "dependencies": {
+    "docsify-cli": "^4.4.4"
+  }
+}
