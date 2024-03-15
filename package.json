@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "check-update": "npx --yes npm-check-updates",
-    "dev": "docsify serve ./docs --port 80",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "docsify serve ./docs --port 80"
   },
   "author": "TetraTheta",
   "dependencies": {
