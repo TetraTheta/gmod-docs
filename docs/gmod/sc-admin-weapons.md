@@ -3,13 +3,13 @@
 
 > *Just Another Admin Weapons*
 
-I know there are tons of admin guns in the GMod Workshop. But I couldn't find any add-on that fit my desire, so I decided to make my own version of the admin gun.
+I know there are tons of admin guns in the Garry's Mod Workshop. But I couldn't find any add-on that fit my desire, so I decided to make my own version of the admin gun.
 
 ## Weapon List
 Currently, this add-on provides two weapons. Every weapon shares the same mechanism unless specified.
 
 * Admin Pistol
-* Admin Pistol (Clean): Same with 'Admin Pistol, but does not create 'bullet hole'
+* Admin Pistol (Clean): Same with 'Admin Pistol, but does not create 'bullet hole'.
 
 ### Admin Pistol
 Based on the HL2 Pistol with different weapon models for distinguishing purposes.
@@ -35,11 +35,11 @@ Sometimes, explosions are not enough. In that case, you can fire an Airboat Gun.
 It is highly effective to combine helicopters!
 
 #### Combine Ball Mode
-Tired of charging AR2 Alt Fire to shoot combine balls? This admin gun will cover you.  
+Tired of charging AR2 Alt Fire to shoot combine balls? This fire mode will cover you.  
 With this, you can fire a very fast combine ball without any limitation.
 
 #### Armed Grenade Mode
-Do you love spamming grenades? This will do the job for you much faster!
+Do you love spamming grenades? This will do the job for you much faster!  
 Motivated by [this video](http://youtu.be/LJDTgsXsP0k).
 
 ---
@@ -51,5 +51,6 @@ Motivated by [this video](http://youtu.be/LJDTgsXsP0k).
 ---
 
 ## FAQ
+
 ### This gun looks weird!
 This add-on uses a dedicated weapon model. I know the model this add-on uses is not that fancy. Sorry!

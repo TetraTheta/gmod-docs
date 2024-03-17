@@ -1,3 +1,3 @@
-- [Garry's Mod](gmod/)
-  - [SC Admin Weapons](gmod/sc-admin-weapons.md)
-  - [SC Tools](gmod/sc-tools.md)
+* Garry's Mod
+  * [SC Admin Weapons](gmod/sc-admin-weapons.md)
+  * [SC Tools](gmod/sc-tools.md)

@@ -16,13 +16,18 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
+      // General
       name: 'Documentations',
-      repo: '',
-      auto2top: true,
       formatUpdated: '{YYYY}/{MM}/{DD}',
-      //loadNavbar: true,
+      loadNavbar: true,
       loadSidebar: true,
       nativeEmoji: true,
+      // Navigation
+      auto2top: true,
+      maxLevel: 3,
+      subMaxLevel: 3,
+      mergeNavbar: true,
+      // Plugins
       themeable: {
         readyTransition: true,
         responsiveTables: true
