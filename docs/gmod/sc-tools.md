@@ -9,6 +9,8 @@ Most of these commands require SuperAdmin privilege.
 
 ## Commands
 
+Here are the commands that SC Tools adds.
+
 ### sc_clean
 
 Remove various entities from the current map. The cleanup result will be displayed to the player who runs it.
@@ -23,30 +25,11 @@ Usage: `sc_clean <all|ammo|debris|decal|gibs|powerups|ragdoll|small|weapon>`
 * `powerups`: Health kits & Battery
 * `ragdoll`: Ragdoll
 * `small`: Small objects
-  * `models/gibs/*`
-  * `models/humans/*`
-  * `models/props/cs_office/trash_can_p1.mdl`
-  * `models/props/cs_office/trash_can_p2.mdl`
-  * `models/props/cs_office/trash_can_p3.mdl`
-  * `models/props/cs_office/trash_can_p4.mdl`
-  * `models/props/cs_office/trash_can_p5.mdl`
-  * `models/props/cs_office/trash_can_p7.mdl`
-  * `models/props/cs_office/trash_can_p8.mdl`
-  * `models/props/cs_office/water_bottle.mdl`
-  * `models/props_c17/chair02a.mdl`
-  * `models/props_junk/garbage_metalcan001a.mdl`
-  * `models/props_junk/garbage_metalcan002a.mdl`
-  * `models/props_junk/garbage_plasticbottle001a.mdl`
-  * `models/props_junk/garbage_plasticbottle003a.mdl`
-  * `models/props_junk/metal_paintcan001a.mdl`
-  * `models/props_junk/metal_paintcan001b.mdl`
-  * `models/props_junk/popcan01a.mdl`
-  * `models/props_junk/shoe001a.mdl`
-  * `models/props_wasteland/cafeteria_table001a.mdl`
-  * `models/props_wasteland/controlroom_chair001a.mdl`
+  * Models defined in `garrysmod/data/sc_tools/small.txt`
+  * Model parent path defined in `garrysmod/data/sc_tools/smalldir.txt`
 * `weapon`: HL2 weapons
 
-See Also: [`sc_remove_effect`](#sc_remove_effect)
+See Also: [`sc_remove_effect`](#sc_remove_effect), [`sc_reload`](#sc_reload)
 
 ### sc_flashlight
 
@@ -86,6 +69,14 @@ Heal the player and charge the player's suit energy too.
 
 If the player is omitted, the player who ran the command will be the player.
 
+### sc_reload
+
+Reload configuration of SC Tools.
+
+Currently, it will reload `small.txt` and `smalldir.txt` in `garrysmod/data/sc_tools` for `sc_clean small` command.
+
+Usage: `sc_reload`
+
 ### sc_remove
 
 Remove the entity the player is looking at.
@@ -105,6 +96,8 @@ Usage: `sc_remove_all`
 ### sc_remove_constraints
 
 Remove constraints on the entity the player is looking at.
+
+This command must be used by a player, and the player must look directly at an entity that is meant constraints to be removed.
 
 Usage: `sc_remove_constraints`
 
@@ -138,7 +131,7 @@ Usage: `sc_setspeed <all|duck|run|slow|walk> <fast|reset> [player]`
 * `slow`: Slow walk speed (`+walk`)
 * `walk`: Walk speed
 
-Here are the speed of the player: The value of reset is tested with a clean player state.
+Here are the speed of the player: The value of 'reset' is tested with a clean player state.
 
 * `duck`: `0.3` (reset) | `0.8` (fast - 267%)
 * `run`: `400` (reset) | `600` (fast - 150%)
@@ -146,6 +139,8 @@ Here are the speed of the player: The value of reset is tested with a clean play
 * `walk`: `200` (reset) | `300` (fast - 150%)
 
 ## ConVar
+
+Here are the ConVars that SC Tools adds.
 
 ### sc_auto_god_npc
 
@@ -185,6 +180,14 @@ Automatically enable flashlights for players.
   * `0`: Disable
   * `1`: SuperAdmin Only
   * `2`: All Players
+
+### sc_no_obstacle
+
+Disable collision of small obstacles.
+
+`sc_no_obstacle <0|1>`
+  * `0`: Disable
+  * `1`: Enable
 
 ### sc_no_player_collision
 
