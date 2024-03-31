@@ -29,7 +29,7 @@ Usage: `sc_clean <all|ammo|debris|decal|gibs|powerups|ragdoll|small|weapon>`
   * Model parent path defined in `garrysmod/data/sc_tools/smalldir.txt`
 * `weapon`: HL2 weapons
 
-See Also: [`sc_remove_effect`](#sc_remove_effect), [`sc_reload`](#sc_reload)
+See Also: [`sc_remove_effect`](#sc_remove_effect), [`sc_reload`](#sc_reload), [small.txt & smalldir.txt](#smalltxt-amp-smalldirtxt)
 
 ### sc_flashlight
 
@@ -204,3 +204,63 @@ Entity remove effect type. This is shared with other commands.
 `sc_remove_effect <0|1>`
 * `0`: Remove as if it were removed with the Remove Toolgun
 * `1`: Dissolve
+
+## Config file
+
+### small.txt & smalldir.txt
+
+These file defines which `prop_dynamic` without 'name' should be removed by its model.
+
+small.txt contains absolute model paths, one per each line.
+
+<details><summary>Default value of 'small.txt'</summary>
+
+* models/combine_apc_destroyed_gib02.mdl
+* models/combine_apc_destroyed_gib03.mdl
+* models/combine_apc_destroyed_gib04.mdl
+* models/combine_apc_destroyed_gib05.mdl
+* models/combine_apc_destroyed_gib06.mdl
+* models/props/cs_office/trash_can_p1.mdl
+* models/props/cs_office/trash_can_p2.mdl
+* models/props/cs_office/trash_can_p3.mdl
+* models/props/cs_office/trash_can_p4.mdl
+* models/props/cs_office/trash_can_p5.mdl
+* models/props/cs_office/trash_can_p7.mdl
+* models/props/cs_office/trash_can_p8.mdl
+* models/props/cs_office/water_bottle.mdl
+* models/props_c17/chair02a.mdl
+* models/props_c17/chair02a.mdl
+* models/props_c17/tools_pliers01a.mdl
+* models/props_c17/tools_wrench01a.mdl
+* models/props_junk/garbage_metalcan001a.mdl
+* models/props_junk/garbage_metalcan002a.mdl
+* models/props_junk/garbage_milkcarton001a.mdl
+* models/props_junk/garbage_milkcarton002a.mdl
+* models/props_junk/garbage_plasticbottle001a.mdl
+* models/props_junk/garbage_plasticbottle003a.mdl
+* models/props_junk/metal_paintcan001a.mdl
+* models/props_junk/metal_paintcan001b.mdl
+* models/props_junk/popcan01a.mdl
+* models/props_junk/shoe001a.mdl
+* models/props_lab/binderblue.mdl
+* models/props_lab/binderbluelabel.mdl
+* models/props_lab/bindergraylabel01a.mdl
+* models/props_lab/bindergraylabel01b.mdl
+* models/props_lab/bindergreen.mdl
+* models/props_lab/bindergreenlabel.mdl
+* models/props_lab/binderredlabel.mdl
+* models/props_lab/box01a.mdl
+* models/props_lab/jar01a.mdl
+* models/props_wasteland/cafeteria_table001a.mdl
+* models/props_wasteland/controlroom_chair001a.mdl
+
+</details>
+
+smalldir.txt contains parent path of the models, one per each line.
+
+<details><summary>Default value of 'smalldir.txt'</summary>
+
+* models/gibs/
+* models/humans/
+
+</details>
