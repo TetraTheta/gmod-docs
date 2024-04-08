@@ -42,6 +42,10 @@ With this, you can fire a very fast combine ball without any limitation.
 Do you love spamming grenades? This will do the job for you much faster!  
 Motivated by [this video](http://youtu.be/LJDTgsXsP0k).
 
+#### RPG Rocket Mode
+Sometimes, you want to spam RPG rockets. Now you can!  
+Note that the speed of the rocket is slower than Combine Ball!
+
 ---
 
 ## Known Issue
