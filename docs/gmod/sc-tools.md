@@ -1,11 +1,25 @@
 # SC Tools
 [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3207465120)
 
-> *Random stuff I've made*
+> *Random Stuff I've Made*
 
 SC Tools are a collection of custom console commands and ConVars I've made.
 
 Most of these commands require SuperAdmin privilege.
+
+## Feature
+
+Here are the feature that SC Tools provides.
+
+### `env_hudhint` Replacement
+
+In Garry's Mod, [`env_hudhint`](https://developer.valvesoftware.com/wiki/Env_hudhint) is not available. SC Tools will show notification to players instead.
+
+### `disconnect` Restoration
+
+In Garry's Mod, `point_servercommand` and `point_clientcommand` that can issue console command can't issue `disconnect` console command. SC Tools will either show notification or disconnect player depending on `sc_reenable_disconnect` console variable.
+
+See Also: [`sc_reenable_disconnect`](#sc_reenable_disconnect)
 
 ## Commands
 
@@ -68,6 +82,8 @@ Usage: `sc_heal [player]`
 Heal the player and charge the player's suit energy too.
 
 If the player is omitted, the player who ran the command will be the player.
+
+Usage: `sc_overheal [player]`
 
 ### sc_reload
 
@@ -196,6 +212,21 @@ Disable player-to-player collision globally.
 `sc_no_player_collision <0|1>`
   * `0`: Disable
   * `1`: Enable
+
+### sc_reenable_disconnect
+
+In Garry's Mod, the player cannot be disconnected from the map even if the map issues a `disconnect` command via `point_servercommand` or `point_clientcommand`.  
+SC Tools will handle this situation depending on what game mode that the player is in.
+
+`sc_reenable_disconnect <0|1>`
+  * `0`:
+    * Listen Server(Singleplayer) mode: Show notification message.
+    * Listen Server(Multiplayer) mode: Show notification message to all players.
+    * Dedicated Server mode: Show notification message to all players.
+  * `1`:
+    * Listen Server(Singleplayer) mode: Disconnect player.
+    * Listen Server(Multiplayer) mode: Show notification message to all players.
+    * Dedicated Server mode: Show notification message to all players.
 
 ### sc_remove_effect
 
