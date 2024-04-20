@@ -11,15 +11,21 @@ Most of these commands require SuperAdmin privilege.
 
 Here are the feature that SC Tools provides.
 
+### `disconnect` Restoration
+
+In Garry's Mod, `point_servercommand` and `point_clientcommand` that can issue console command can't issue `disconnect` console command.
+
+SC Tools will either show notification or disconnect player depending on `sc_reenable_disconnect` console variable.
+
+See Also: [`sc_reenable_disconnect`](#sc_reenable_disconnect)
+
 ### `env_hudhint` Replacement
 
 In Garry's Mod, [`env_hudhint`](https://developer.valvesoftware.com/wiki/Env_hudhint) is not available. SC Tools will show notification to players instead.
 
-### `disconnect` Restoration
+### Speed Booster
 
-In Garry's Mod, `point_servercommand` and `point_clientcommand` that can issue console command can't issue `disconnect` console command. SC Tools will either show notification or disconnect player depending on `sc_reenable_disconnect` console variable.
-
-See Also: [`sc_reenable_disconnect`](#sc_reenable_disconnect)
+When you press `SHIFT`(`+speed`) key while crouching or taking ladder, depending on the value of `sc_boost_speed_modifier` ConVar, you'll be faster (or slower)!
 
 ## Commands
 
@@ -101,6 +107,8 @@ This command must be used by a player, and the player must look directly at an e
 
 Usage: `sc_remove`
 
+See Also: [`sc_remove_effect`](#sc_remove_effect)
+
 ### sc_remove_all
 
 Remove the entity the player is looking at, including those that are connected too.
@@ -108,6 +116,8 @@ Remove the entity the player is looking at, including those that are connected t
 This command must be used by a player, and the player must look directly at an entity that is meant to be removed.
 
 Usage: `sc_remove_all`
+
+See Also: [`sc_remove_effect`](#sc_remove_effect)
 
 ### sc_remove_constraints
 
@@ -163,8 +173,8 @@ Here are the ConVars that SC Tools adds.
 Automatically make NPC in campaign maps invulnerable.
 
 `sc_auto_god_npc <0|1>`
-* `0`: True
-* `1`: False
+* `0`: Do not make NPC in campaign maps invulnerable automatically
+* `1`: Make NPC in campaign maps invulnerable automatically
 
 The map that starts with one of these prefixes will be considered a campaign map.
 
@@ -188,37 +198,44 @@ And these NPCs will be invulnerable on those campaign maps.
 * `npc_vortigaunt`
 * `npc_citizen` with `models/odessa.mdl` model
 
+### sc_boost_speed_modifier
+
+Multiplier for speed boost when pressing SHIFT(`+speed`) key.  
+If you set this value below `1.0`, you'll get slower.
+
+`sc_flashlight_auto <float>` (DEFAULT: `1.0`)
+
 ### sc_flashlight_auto
 
 Automatically enable flashlights for players.
 
-`sc_flashlight_auto <0|1|2>`
+`sc_flashlight_auto <0|1|2>` (DEFAULT: `0`)
   * `0`: Disable
-  * `1`: SuperAdmin Only
-  * `2`: All Players
+  * `1`: Automatically enable flashlight to SuperAdmin Only
+  * `2`: Automatically enable flashlight to all Players
 
 ### sc_no_obstacle
 
 Disable collision of small obstacles.
 
-`sc_no_obstacle <0|1>`
-  * `0`: Disable
-  * `1`: Enable
+`sc_no_obstacle <0|1>` (DEFAULT: `0`)
+  * `0`: Enable small obstacle collisions
+  * `1`: Disable small obstacle collisions
 
 ### sc_no_player_collision
 
 Disable player-to-player collision globally.
 
-`sc_no_player_collision <0|1>`
-  * `0`: Disable
-  * `1`: Enable
+`sc_no_player_collision <0|1>` (DEFAULT: `0`)
+  * `0`: Enable player-to-player collision
+  * `1`: Disable player-to-player collision
 
 ### sc_reenable_disconnect
 
 In Garry's Mod, the player cannot be disconnected from the map even if the map issues a `disconnect` command via `point_servercommand` or `point_clientcommand`.  
 SC Tools will handle this situation depending on what game mode that the player is in.
 
-`sc_reenable_disconnect <0|1>`
+`sc_reenable_disconnect <0|1>` (DEFAULT: `0`)
   * `0`:
     * Listen Server(Singleplayer) mode: Show notification message.
     * Listen Server(Multiplayer) mode: Show notification message to all players.
@@ -232,8 +249,11 @@ SC Tools will handle this situation depending on what game mode that the player 
 
 Entity remove effect type. This is shared with other commands.
 
-`sc_remove_effect <0|1>`
-* `0`: Remove as if it were removed with the Remove Toolgun
+Some objects will always use the 'Remove Toolgun' effect, regardless of this ConVar, because they aren't dissolvable.  
+Some objects will always break.
+
+`sc_remove_effect <0|1>` (DEFAULT: `0`)
+* `0`: Remove Toolgun
 * `1`: Dissolve
 
 ## Config file
