@@ -23,6 +23,10 @@ See Also: [`sc_reenable_disconnect`](#sc_reenable_disconnect)
 
 In Garry's Mod, [`env_hudhint`](https://developer.valvesoftware.com/wiki/Env_hudhint) is not available. SC Tools will show notification to players instead.
 
+### Sound Speed Booster
+
+When the server's timescale (`host_timescale`) is increased, the sound that the client would hear will also speed up. They would be heard like gibberish, though.
+
 ### Speed Booster
 
 When you press `SHIFT`(`+speed`) key while crouching or taking ladder, depending on the value of `sc_boost_speed_modifier` ConVar, you'll be faster (or slower)!
