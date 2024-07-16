@@ -11,9 +11,17 @@ Most of these commands require SuperAdmin privilege.
 
 Here are the feature that SC Tools provides.
 
+### An Alternative Way for Changing Map
+
+In Garry's Mod, `point_servercommand` and `point_clientcommand` that can issue console commands can't issue an `map` console command.
+
+SC Tools provides an alternative way to change the map, `sc_changelevel`.
+
+See Also: [`sc_changelevel`](#sc_changelevel)
+
 ### `disconnect` Restoration
 
-In Garry's Mod, `point_servercommand` and `point_clientcommand` that can issue console command can't issue `disconnect` console command.
+In Garry's Mod, `point_servercommand` and `point_clientcommand` that can issue console commands can't issue `disconnect` console command.
 
 SC Tools will either show notification or disconnect player depending on `sc_reenable_disconnect` console variable.
 
@@ -259,6 +267,38 @@ Some objects will always break.
 `sc_remove_effect <0|1>` (DEFAULT: `0`)
 * `0`: Remove Toolgun
 * `1`: Dissolve
+
+## Entity
+
+### `sc_changelevel`
+
+Unfortunately, `sc_changelevel` must be manually created. Here is an example Lua code for adding output that triggers `sc_changelevel` for changing the map.
+
+```lua
+-- Editing entities must be done in the 'InitPostEntity' hook
+hook.Add("InitPostEntity", "UniqueHookName", function()
+  if SERVER then
+    -- Find the trigger that calls 'point_servercommand' or 'point_clientcommand' for changing level
+    -- HammerID can't be used in this situation, so you must filter the trigger by its origin
+    for _, v in ipairs(ents.FindByClass("trigger_once")) do
+      if v:GetPos() == Vector(1480,449.5,-1158) then
+        v:Input("AddOutput", v, nil, "OnStartTouch CLEVEL,ChangeLevel,,0,1")
+      end
+    end
+    -- Create sc_changelevel entity
+    local t = ents.Create("sc_changelevel")
+    if t then
+      t:SetName("CLEVEL") -- It is advised to set the targetname of the sc_changelevel
+      t:SetPos(Vector(1480, 449.5, -1158))
+      t:SetKeyValue("map", "NEXTMAPNAME")
+      t:Spawn()
+      t:Activate()
+    else
+      print("Failed to create 'sc_changelevel'")
+    end
+  end
+end)
+```
 
 ## Config file
 
