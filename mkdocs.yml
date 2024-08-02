@@ -1,3 +1,93 @@
 site_name: GModDocs
+site_description: A collection of documentations for all the add-ons I made for Garry's Mod
+site_url: https://gmoddocs.readthedocs.io/latest/
+
+extra_javascript:
+  - assets/javascripts/steam_workshop.js
+extra_css:
+  - assets/stylesheets/steam_workshop.css
+
 theme:
   name: material
+  palette:
+    scheme: slate
+    primary: indigo
+    accent: light green
+  language: en
+  #logo: assets/images/logo.svg
+  icon:
+    logo: fontawesome/solid/gear
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.instant.prefetch
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - toc.follow
+    #- toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - header.autohide
+    - navigation.footer
+
+plugins:
+  - social:
+      cards_layout_options:
+        background_color: '#14151A'
+  - search
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - tables
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji 
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      pygments_lang_class: true
+      auto_title: true
+      line_spans: __span
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+
+#watch:
+#  - includes
+
+nav:
+  - Home: index.md
+  - SC Tools:
+    - sctools/index.md
+    - Command: sctools/command.md
+    - Console Variable: sctools/convar.md
+    - Config: sctools/config.md
+    - Entity: sctools/entity.md
+    - Feature: sctools/feature.md
+    - Module: sctools/module.md
+  - SC Admin Weapons: adminweapon/index.md
+  - SC Resistance Turret: resistanceturret/index.md
+  - Silenced ULib/ULX : silenced/index.md
+  - Mod Port: modport/index.md

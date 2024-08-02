@@ -1,0 +1,92 @@
+.steam-workshop {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-width: 360px;
+  height: 205px;
+  background-color: #16202D;
+  box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+}
+
+.steam-workshop-preview {
+  flex: 0 0 auto;
+  width: 205px;
+  height: 0;
+  padding-bottom: 205px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.steam-workshop-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20px;
+  padding: 10px;
+}
+
+.steam-workshop-info-title {
+  align-self: flex-start;
+  color: #DCDCDC;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.steam-workshop-info-description {
+  flex: 1;
+  color: #969696;
+  font-size: 0.8rem;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.steam-workshop-info-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 5px;
+}
+
+.steam-workshop-info-footer-action {
+  margin-left: auto;
+}
+
+.steam-workshop-info-footer-action a {
+  display: inline-block;
+  color: #d2efa9;
+  background: transparent;
+  text-decoration: none !important;
+  text-shadow: 1px 1px 0px #0000004D;
+  font-size: 0.9rem;
+  line-height: 1.8rem;
+  cursor: pointer;
+  border-radius: 2px;
+  border: none;
+  padding: 1px;
+}
+
+.steam-workshop-info-footer-action a:hover {
+  color: #fff;
+  background: transparent;
+  text-decoration: none !important;
+}
+
+.steam-workshop-info-footer-action a span {
+  display: block;
+  background: linear-gradient(to right, #75B022 5%, #588A1B 95%);
+  font-size: 0.9rem;
+  line-height: 1.8rem;
+  border-radius: 2px;
+  margin: 0;
+  padding: 0 15px;
+}
+
+.steam-workshop-info-footer-action a:hover span {
+  background: linear-gradient(to right, #8ED629 5%, #6AA621 95%);
+}
