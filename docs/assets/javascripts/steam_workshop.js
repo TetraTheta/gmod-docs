@@ -51,7 +51,7 @@ class SteamWorkshopElem extends HTMLElement {
           description = description.substr(0, self.DESCRIPTION_MAX_LENGTH - 1) + '…'
         }
         // html
-        let html = `<div class="steam-workshop"${borderRoot}><div class="steam-workshop-preview"${borderImage}></div><div class="steam-workshop-info"><div class="steam-workshop-info-title">${json.data.title}</div><div class="steam-workshop-info-description">${description}</div><div class="steam-workshop-info-footer"><div class="steam-workshop-info-footer-action"><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=${json.data.publishedfileid}"><span>${viewText}</span></a></div></div></div></div>`
+        let html = `<div class="steam-workshop"${borderRoot}><div class="steam-workshop-preview"${borderImage}></div><div class="steam-workshop-info"><div class="steam-workshop-info-title">${json.data.title}</div><div class="steam-workshop-info-description">${description}</div><div class="steam-workshop-info-footer"><div class="steam-workshop-info-footer-action"><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=${json.data.publishedfileid}" target="_blank"><span>${viewText}</span></a></div></div></div></div>`
         self.innerHTML = html
       }
     }

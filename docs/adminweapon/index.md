@@ -4,24 +4,36 @@
 
 > *Just Another Admin Weapons*
 
-I know there are tons of admin guns in the Garry's Mod Workshop. But I couldn't find any add-on that fit my desire, so I decided to make my own version of the admin gun.
+I know there are tons of admin guns in the Garry's Mod Workshop. But I couldn't find any add-ons that fit my desire, so I decided to make my own version of the admin gun.
 
 ## Weapon List
 
-Currently, this add-on provides two weapons. Every weapon shares the same mechanism unless specified.
+Every weapon shares the same mechanism unless specified.
 
-* Admin Pistol
-* Admin Pistol (Clean): Same with 'Admin Pistol, but does not create 'bullet hole'.
+* Admin MP5SD  
+  Classname: `scaw_mp5sd`
+* Admin MP5SD (Clean): Same with 'Admin MP5SD', but does not create a 'bullet hole'.  
+  Classname: `scaw_mp5sd_clean`
+* Admin Pistol  
+  Classname: `scaw_pistol`
+* Admin Pistol (Clean): Same with 'Admin Pistol', but does not create a 'bullet hole'.  
+  Classname: `scaw_pistol_clean`
+
+### Admin MP5SD
+
+MP5SD with an underbarrel grenade launcher. The grenade launcher is not used yet.
 
 ### Admin Pistol
 
-Based on the HL2 Pistol with different weapon models for distinguishing purposes.
+HL2 Pistol, but with a different texture for distinguishing purposes.
 
 ***
 
 ## Fire Modes
 
 These weapons will fire bullets without consuming any ammunition, regardless of fire mode.
+
+But you may have to have at least 1 Pistol ammo to fire these weapons.
 
 ### Primary Fire
 
@@ -56,12 +68,10 @@ Motivated by [this video](http://youtu.be/LJDTgsXsP0k).
 
 ## Known Issue
 
-* None
+* *None*
 
 ***
 
 ## FAQ
 
-### This gun looks weird!
-
-This add-on uses a dedicated weapon model. I know the model this add-on uses is not that fancy. Sorry!
+### *NONE*
