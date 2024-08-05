@@ -50,9 +50,34 @@ You can also disable player-to-player collisions ~~to prevent [this situation](h
 
 When the player dies, he will see a red overlay all over the screen. For some people, this can make their eyes hurt. In that case, if they set `sc_disable_red_death` to `1`, those red overlays will be gone.
 
+<h3>See also</h3>
+
+* [ConVar `sc_disable_red_death`](convar.md#sc_disable_red_death)
+
+## Hitsound / Killsound
+
+When an NPC is hit by a player, the player will hear a hitsound, or a killsound if the NPC is killed, depending on where the NPC is hit.
+
+This behavior can be toggled by each client with `sc_bshot_effect`/`sc_hshot_effect`, and their volume can be adjustable for each client with `snd_bshotvolume`/`snd_hshotvolume`.
+
+!!! bug "Known Issue"
+
+    This only works on humanoid NPCs. I'll work on non-humanoid NPC soon™.
+
+<h3>See also</h3>
+
+* [ConVar `sc_bshot_effect`](convar.md#sc_shot_effect)
+* [ConVar `sc_hshot_effect`](convar.md#sc_shot_effect)
+* [ConVar `snd_bshotvolume`](convar.md#snd_shotvolume)
+* [ConVar `snd_hshotvolume`](convar.md#snd_shotvolume)
+
 ## Restore `disconnect`
 
 Garry's Mod doesn't allow `point_clientcommand` or `point_servercommand` to invoke `disconnect`. SC Tools can intercept that input and manually kick players to mimic what the `disconnect` command does.
+
+<h3>See also</h3>
+
+* [ConVar `sc_disconnect_mode`](convar.md#sc_disconnect_mode)
 
 ## Small Objects
 

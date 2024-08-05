@@ -154,3 +154,41 @@ sc_remove_effect <0|1>
 
 * [Command `sc_clean`](command.md#sc_clean)
 * [Command `sc_remove`, `sc_remove_all`](command.md#sc_remove)
+
+## sc_bshot_effect, sc_hshot_effect { #sc_shot_effect }
+
+`sc_bshot_effect`: Enable the bodyshot effect (Sound, UI).  
+`sc_hshot_effect`: Enable the headshot effect (Sound, UI).
+
+``` plaintext title="USAGE"
+sc_bshot_effect <0 ~ 3>
+sc_hshot_effect <0 ~ 3>
+```
+
+* 0: Disbale
+* 1: Sound only
+* 2: UI only
+* 3: Both
+
+!!! bug "Known Issue"
+
+    Only sound effect is available. I'll work on the UI part soon™.
+
+## snd_bshotvolume, snd_hshotvolume { #snd_shotvolume }
+
+`snd_bshotvolume`: Volume of the bodyshot sound effect.  
+`snd_hshotvolume`: Volume of the headshot sound effect.
+
+``` plaintext title="USAGE"
+snd_bshotvolume <0.0 ~ 1.0>
+snd_hshotvolume <0.0 ~ 1.0>
+```
+
+!!! info "Do not set this value to `0.0`"
+    
+    If you set this volume as `0.0`, it will be interpreted as `1.0` by the engine.
+
+<h3>See also</h3>
+
+* [ConVar `sc_bshot_effect`](convar.md#sc_shot_effect)
+* [ConVar `sc_hshot_effect`](convar.md#sc_shot_effect)
