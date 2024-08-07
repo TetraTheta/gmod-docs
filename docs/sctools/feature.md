@@ -60,9 +60,10 @@ When an NPC is hit by a player, the player will hear a hitsound, or a killsound 
 
 This behavior can be toggled by each client with `sc_bshot_effect`/`sc_hshot_effect`, and their volume can be adjustable for each client with `snd_bshotvolume`/`snd_hshotvolume`.
 
-!!! bug "Known Issue"
+<h3>Sound source</h3>
 
-    This only works on humanoid NPCs. I'll work on non-humanoid NPC soon™.
+* [Counter-Strike 2](https://store.steampowered.com/app/730)
+* [Half-Life 2 : MMod](https://www.moddb.com/mods/hl2-ep2-enhased-mod)
 
 <h3>See also</h3>
 
