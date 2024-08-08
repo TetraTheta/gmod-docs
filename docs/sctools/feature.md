@@ -54,6 +54,14 @@ When the player dies, he will see a red overlay all over the screen. For some pe
 
 * [ConVar `sc_disable_red_death`](convar.md#sc_disable_red_death)
 
+## Highlight Entities
+
+If you want to find certain entities with class, targetname, or model, you can do it with `sc_glow` command.
+
+<h3>See also</h3>
+
+* [Command `sc_glow_add|remove_class|model|name`](command.md#sc_glow)
+
 ## Hitsound / Killsound
 
 When an NPC is hit by a player, the player will hear a hitsound, or a killsound if the NPC is killed, depending on where the NPC is hit.

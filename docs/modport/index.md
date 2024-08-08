@@ -1,3 +1,7 @@
+---
+hide:
+  - navigation
+---
 # Mod Port
 
 *TODO*

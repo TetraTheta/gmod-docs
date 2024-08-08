@@ -70,7 +70,51 @@ sc_gca [player name]
 
 You can omit 'player name' to refill your ammunition.
 
-## sc_god, sc_set_god, sc_unset_god { #sc_god }
+## sc_glow_add|remove_class|model|name { #sc_glow }
+
+`sc_glow_add_class`: Make entities with given class to glow  
+`sc_glow_add_model`: Make entities with given model to glow  
+`sc_glow_add_name`: Make entities with given targetname to glow
+
+<div class="annotate" markdown>
+
+``` plaintext title="USAGE"
+sc_glow_add_class <class name>(1)
+sc_glow_add_model <model path>(2)
+sc_glow_add_name <targetname>
+```
+
+</div>
+
+1.    This must be valid entity class name.  
+      Check [Valve Developer Community](https://developer.valvesoftware.com/wiki/Main_Page) for the class name lookup.
+2.    Supports `*` wildcard at the end of the path.  
+      `models/props/cs_office/trash_can*` includes `models/props/cs_office/trash_can_p4.mdl`.
+
+`sc_glow_remove_class`: Stop entities with given class from glowing  
+`sc_glow_remove_model`: Stop entities with given model from glowing  
+`sc_glow_remove_name`: Stop entities with given targetname from glowing
+
+<div class="annotate" markdown>
+
+``` plaintext title="USAGE"
+sc_glow_remove_class <class name>(1)
+sc_glow_remove_model <model path>(2)
+sc_glow_remove_name <targetname>
+```
+
+</div>
+
+1.    This must be valid entity class name.  
+      Check [Valve Developer Community](https://developer.valvesoftware.com/wiki/Main_Page) for the class name lookup.
+2.    Supports `*` wildcard at the end of the path.  
+      `models/props/cs_office/trash_can*` includes `models/props/cs_office/trash_can_p4.mdl`.
+
+<h3>See also</h3>
+
+* [Feature 'Highlight Entities'](feature.md#highlight-entities)
+
+## sc_god, sc_set|unset_god { #sc_god }
 
 `sc_god`: Toggle GodMode for the player.
 
@@ -105,7 +149,7 @@ If you find an NPC in GodMode dies, tell me the reproducible steps, and I'll try
 * [ConVar `sc_auto_god_sadmin`](convar.md#sc_auto_god)
 * [Feature 'Auto GodMode'](feature.md#auto-godmode)
 
-## sc_heal, sc_overheal { #sc_heal }
+## sc_heal|overheal { #sc_heal }
 
 `sc_heal`: Heal player.  
 `sc_overheal`: Overheal(1) player.
@@ -136,7 +180,7 @@ sc_reload
 * [Config `small_model.txt`](config.md#small_model)
 * [Config `small_model_dir.txt`](config.md#small_model_dir)
 
-## sc_remove, sc_remove_all, sc_remove_constraints { #sc_remove }
+## sc_remove, sc_remove_all|constraints { #sc_remove }
 
 `sc_remove`: Remove the entity you are looking at.  
 `sc_remove_all`: Remove every entity that is connected to the entity you are looking at.  

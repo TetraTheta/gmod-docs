@@ -148,6 +148,10 @@ You can get a list of classes for NPCs in the [Valve Developer Community](https:
     npc_vortigaunt
     ```
 
+<h3>See also</h3>
+
+* [Feature 'Auto GodMode'](feature.md#auto-godmode)
+
 ## npc_disable_input.txt { #npc_disable_input }
 
 When SC Tools removes the NPC, it will pass a few inputs to the NPC to stop what it is doing, like shooting players.
@@ -197,6 +201,10 @@ You can get a list of classes for NPCs in the [Valve Developer Community](https:
     npc_vehicledriver|StopFiring:Stop
     npc_vortigaunt|HolsterWeapon
     ```
+
+<h3>See also</h3>
+
+* [Command `sc_remove`](command.md#sc_remove)
 
 ## small_model.txt { #small_model }
 

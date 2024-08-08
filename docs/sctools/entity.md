@@ -9,7 +9,8 @@ In Garry's Mod, `env_hudhint` is missing. This can cause problem when running ma
 ### Keyvalues
 
 * Hint Text(`message`)  
-  This can be a plaintext(`%+zoom% ZOOM VIEW`) or a localization key(like `#Valve_Hint_Zoom`). If it is a localization key, it will be translated to the user's language. After that, translatable keybinds like `%+zoom%` will be translated.  
+  This can be a plaintext(`%+zoom% ZOOM VIEW`) or a localization key(like `#Valve_Hint_Zoom`).  
+  If it is a localization key, it will be translated to the user's language. After that, translatable keybinds like `%+zoom%` will be translated.  
   Localization key can be manually added with [`language.Add`](https://wiki.facepunch.com/gmod/language.Add).
   ```lua
   language.Add("My_Translation_Key", "My Translation Key which is added by client realm lua code.")

@@ -1,3 +1,7 @@
+---
+hide:
+  - navigation
+---
 # SC Admin Weapon
 
 <steam-workshop itemid="3011567266"></steam-workshop>
