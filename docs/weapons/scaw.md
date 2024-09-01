@@ -1,31 +1,12 @@
----
-hide:
-  - navigation
----
-# SC Admin Weapon
+# SC Admin Weapons
 
-<steam-workshop itemid="3011567266"></steam-workshop>
+Every admin weapon shares the same mechanism unless specified.
 
-> *Just Another Admin Weapons*
-
-I know there are tons of admin guns in the Garry's Mod Workshop. But I couldn't find any add-ons that fit my desire, so I decided to make my own version of the admin gun.
-
-## Weapon List
-
-Every weapon shares the same mechanism unless specified.
-
-* Admin MP5SD  
-  Classname: `scaw_mp5sd`
-* Admin MP5SD (Clean): Same with 'Admin MP5SD', but does not create a 'bullet hole'.  
-  Classname: `scaw_mp5sd_clean`
-* Admin Pistol  
-  Classname: `scaw_pistol`
-* Admin Pistol (Clean): Same with 'Admin Pistol', but does not create a 'bullet hole'.  
-  Classname: `scaw_pistol_clean`
+## Description
 
 ### Admin MP5SD
 
-MP5SD with an underbarrel grenade launcher. The grenade launcher is not used yet.
+MP5SD with an underbarrel grenade launcher. The grenade launcher is not used.
 
 ### Admin Pistol
 
@@ -67,15 +48,3 @@ With this, you can fire a very fast combine ball without any limitation.
 
 Do you love spamming grenades? This will do the job for you much faster!  
 Motivated by [this video](http://youtu.be/LJDTgsXsP0k).
-
-***
-
-## Known Issue
-
-* *None*
-
-***
-
-## FAQ
-
-### *NONE*

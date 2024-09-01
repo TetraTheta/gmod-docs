@@ -79,6 +79,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - SC Resistance Turret: resistanceturret/index.md
   - SC Tools:
     - sctools/index.md
     - Command: sctools/command.md
@@ -87,7 +88,9 @@ nav:
     - Entity: sctools/entity.md
     - Feature: sctools/feature.md
     - Module: sctools/module.md
-  - SC Admin Weapons: adminweapon/index.md
-  - SC Resistance Turret: resistanceturret/index.md
+  - SC Weapons:
+    - weapons/index.md
+    - Admin Weapons: weapons/scaw.md
+    - Weapons: weapons/scw.md
   - Silenced ULib/ULX : silenced/index.md
   - Mod Port: modport/index.md
