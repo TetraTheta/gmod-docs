@@ -134,6 +134,22 @@ sc_disconnect_mode <0|1>
 
 * [Feature 'Restore `disconnect`'](feature.md#restore-disconnect)
 
+## sc_dynamic_fire
+
+Enable dynamic fire.
+
+``` plaintext title="USAGE"
+sc_dynamic_fire <0|1>
+```
+
+* 0: Disable Dynamic Fire (default)
+* 1: Enable Dynamic Fire
+
+!!! info "This is client ConVar!"
+
+    This console variable won't be affected or affect the server's value.  
+    Clients can change this value to fit their taste.
+
 ## sc_remove_effect
 
 Entity remove effect type.
