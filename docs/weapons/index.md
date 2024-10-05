@@ -6,6 +6,8 @@
 
 I know there are tons of admin guns in the Garry's Mod Workshop. But I couldn't find any add-ons that fit my desire, so I decided to make my own version of the admin gun.
 
+While doing that, I've also decided to make my own SWEPs that aren't admin guns too.
+
 ## Weapon List
 
 'SC Weapons' is made up of two parts. 'SC Admin Weapons' are literally admin weapons. 'SC Weapons' are weapons that even ordinary players can use.
@@ -31,10 +33,16 @@ Every admin weapon shares the same mechanism unless specified.
   Classname: `scw_fastcrowbar`
 * MP5SD  
   Classname: `scw_mp5sd`
+* SCAR20  
+  Classname: `scw_scar20`
 
 ## Known Issue
 
-* *None*
+### Missing hands in SCAR20
+
+Hands are removed because I couldn't figure out how to fix these distorted hands. No hands would be better than this.
+
+![](images/distorted_hand.webp)
 
 ***
 

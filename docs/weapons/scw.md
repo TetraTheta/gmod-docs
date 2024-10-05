@@ -17,3 +17,9 @@ I tried to mimic HL2 Crowbar as much as I could, but there can be a small differ
 Basically, this is reskined SMG1. But its bullet spread is very small, and its damage is twice that of SMG1.
 
 It also has the capability of converting Pistol ammo to SMG1 ammo when SMG1 ammo is depleted.
+
+### SCAR20
+
+This SWEP is based on SCAR20 from CS:GO but uses Crossbow Bolt as its ammunition and has 100% accuracy.
+
+It also has the capability of converting AR2 ammo to Crossbow ammo when Crossbow ammo is depleted.
