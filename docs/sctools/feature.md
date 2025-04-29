@@ -2,8 +2,8 @@
 
 ## Auto GodMode
 
-* NPC Auto GodMode: In certain maps, certain NPCs will automatically be in GodMode, so they won't take any damage.
-* SAdmin Auto GodMode: Players in the SuperAdmin usergroup will be in GodMode automatically.
+* NPC Auto GodMode: In certain maps, certain NPCs will automatically be in GodMode, so they won't take any damage depending on configuration.
+* SuperAdmin Auto GodMode: Players in the SuperAdmin usergroup will be in GodMode automatically.
 
 <h3>See also</h3>
 

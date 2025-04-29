@@ -16,24 +16,24 @@ While doing that, I've also decided to make my own SWEPs that aren't admin guns 
 
 Every admin weapon shares the same mechanism unless specified.
 
-* Admin MP5SD  
+* Admin MP5SD<br>
   Classname: `scaw_mp5sd`
-* Admin MP5SD (Clean): Same with 'Admin MP5SD', but does not create a 'bullet hole'.  
+* Admin MP5SD (Clean): Same with 'Admin MP5SD', but does not create a 'bullet hole'.<br>
   Classname: `scaw_mp5sd_clean`
-* Admin Pistol  
+* Admin Pistol<br>
   Classname: `scaw_pistol`
-* Admin Pistol (Clean): Same with 'Admin Pistol', but does not create a 'bullet hole'.  
+* Admin Pistol (Clean): Same with 'Admin Pistol', but does not create a 'bullet hole'.<br>
   Classname: `scaw_pistol_clean`
 
 ### SC Weapons
 
-* Empty Hands  
+* Empty Hands<br>
   Classname: `scw_empty`
-* Fast Crowbar  
+* Fast Crowbar<br>
   Classname: `scw_fastcrowbar`
-* MP5SD  
+* MP5SD<br>
   Classname: `scw_mp5sd`
-* SCAR20  
+* SCAR20<br>
   Classname: `scw_scar20`
 
 ## Known Issue

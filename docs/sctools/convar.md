@@ -18,12 +18,13 @@ sc_auto_flashlight <0|1|2>
 
 ## sc_auto_god_npc, sc_auto_god_sadmin { #sc_auto_god }
 
-`sc_auto_god_npc`: Enable GodMode for NPCs(1) in campaign maps(2) automatically.  
-`sc_auto_god_sadmin`: Enable GodMode for players in the 'superadmin' usergroup automatically.
+`sc_auto_god_npc`: Enable [GodMode](#sc_auto_god_mode) for 'NPCs'(2) in 'campaign maps'(3) automatically.<br>
+`sc_auto_god_sadmin`: Enable [GodMode](#sc_auto_god_mode) for players in the 'superadmin' usergroup automatically.
 { .annotate }
 
-1.    NPCs defined in `auto_god_npc.txt`
-2.    Maps defined in `auto_god_map.txt`
+1.    Either God or Buddha mode
+2.    NPCs defined in `auto_god_npc.txt`
+3.    Maps defined in `auto_god_map.txt`
 
 ``` plaintext title="USAGE"
 sc_auto_god_npc <0|1>
@@ -37,6 +38,22 @@ sc_auto_god_sadmin <0|1>
 
 * [Config `auto_god_map.txt`](config.md#auto_god_map)
 * [Config `auto_god_npc.txt`](config.md#auto_god_npc)
+* [ConVar `sc_auto_god_mode`](#sc_auto_god_mode)
+
+## sc_auto_god_mode
+
+GodMode provided by SC Tools.
+
+```plaintext title="USAGE"
+sc_auto_god_mode <0|1>
+```
+
+* 0: 'Buddha Mode' which only prevent death (default)
+* 1: 'God Mode' which prevents every type of damage
+
+<h3>See also</h3>
+
+* [ConVar `sc_auto_god_npc`, `sc_auto_god_sadmin`](#sc_auto_god)
 
 ## sc_boost_speed_modifier
 
@@ -173,7 +190,7 @@ sc_remove_effect <0|1>
 
 ## sc_bshot_effect, sc_hshot_effect { #sc_shot_effect }
 
-`sc_bshot_effect`: Enable the bodyshot effect (Sound, UI).  
+`sc_bshot_effect`: Enable the bodyshot effect (Sound, UI).<br>
 `sc_hshot_effect`: Enable the headshot effect (Sound, UI).
 
 ``` plaintext title="USAGE"
@@ -192,7 +209,7 @@ sc_hshot_effect <0 ~ 3>
 
 ## snd_bshotvolume, snd_hshotvolume { #snd_shotvolume }
 
-`snd_bshotvolume`: Volume of the bodyshot sound effect.  
+`snd_bshotvolume`: Volume of the bodyshot sound effect.<br>
 `snd_hshotvolume`: Volume of the headshot sound effect.
 
 ``` plaintext title="USAGE"
@@ -206,5 +223,5 @@ snd_hshotvolume <0.0 ~ 1.0>
 
 <h3>See also</h3>
 
-* [ConVar `sc_bshot_effect`](convar.md#sc_shot_effect)
-* [ConVar `sc_hshot_effect`](convar.md#sc_shot_effect)
+* [ConVar `sc_bshot_effect`](#sc_shot_effect)
+* [ConVar `sc_hshot_effect`](#sc_shot_effect)

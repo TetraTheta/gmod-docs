@@ -22,7 +22,7 @@ But you may have to have at least 1 Pistol ammo to fire these weapons.
 
 ### Primary Fire
 
-This is simple. Primary fire will fire powerful bullets very fast and very hard.  
+This is simple. Primary fire will fire powerful bullets very fast and very hard.<br>
 Press LMB and see heavy containers or heavy cars fly away!
 
 ### Secondary Fire
@@ -31,20 +31,20 @@ Secondary fire mode has four fire modes. You can change fire mode by pressing th
 
 #### Explosion Mode
 
-This will create explosions where your weapon aims.  
+This will create explosions where your weapon aims.<br>
 Be aware that these explosions can kill you (and your friends)!
 
 #### Airboat Gun Mode
 
-Sometimes, explosions are not enough. In that case, you can fire an Airboat Gun.  
+Sometimes, explosions are not enough. In that case, you can fire an Airboat Gun.<br>
 It is highly effective to combine helicopters!
 
 #### Combine Ball Mode
 
-Tired of charging AR2 Alt Fire to shoot combine balls? This fire mode will cover you.  
+Tired of charging AR2 Alt Fire to shoot combine balls? This fire mode will cover you.<br>
 With this, you can fire a very fast combine ball without any limitation.
 
 #### Grenade Mode
 
-Do you love spamming grenades? This will do the job for you much faster!  
+Do you love spamming grenades? This will do the job for you much faster!<br>
 Motivated by [this video](http://youtu.be/LJDTgsXsP0k).

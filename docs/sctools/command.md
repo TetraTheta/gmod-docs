@@ -72,8 +72,8 @@ You can omit 'player name' to refill your ammunition.
 
 ## sc_glow_add|remove_class|model|name { #sc_glow }
 
-`sc_glow_add_class`: Make entities with given class to glow  
-`sc_glow_add_model`: Make entities with given model to glow  
+`sc_glow_add_class`: Make entities with given class to glow<br>
+`sc_glow_add_model`: Make entities with given model to glow<br>
 `sc_glow_add_name`: Make entities with given targetname to glow
 
 <div class="annotate" markdown>
@@ -86,13 +86,13 @@ sc_glow_add_name <targetname>
 
 </div>
 
-1.    This must be valid entity class name.  
+1.    This must be valid entity class name.<br>
       Check [Valve Developer Community](https://developer.valvesoftware.com/wiki/Main_Page) for the class name lookup.
-2.    Supports `*` wildcard at the end of the path.  
+2.    Supports `*` wildcard at the end of the path.<br>
       `models/props/cs_office/trash_can*` includes `models/props/cs_office/trash_can_p4.mdl`.
 
-`sc_glow_remove_class`: Stop entities with given class from glowing  
-`sc_glow_remove_model`: Stop entities with given model from glowing  
+`sc_glow_remove_class`: Stop entities with given class from glowing<br>
+`sc_glow_remove_model`: Stop entities with given model from glowing<br>
 `sc_glow_remove_name`: Stop entities with given targetname from glowing
 
 <div class="annotate" markdown>
@@ -105,9 +105,9 @@ sc_glow_remove_name <targetname>
 
 </div>
 
-1.    This must be valid entity class name.  
+1.    This must be valid entity class name.<br>
       Check [Valve Developer Community](https://developer.valvesoftware.com/wiki/Main_Page) for the class name lookup.
-2.    Supports `*` wildcard at the end of the path.  
+2.    Supports `*` wildcard at the end of the path.<br>
       `models/props/cs_office/trash_can*` includes `models/props/cs_office/trash_can_p4.mdl`.
 
 <h3>See also</h3>
@@ -128,7 +128,7 @@ You can omit 'player name' to toggle your GodMode.
 
 ***
 
-`sc_set_god`: Enable GodMode for the NPC you're looking at.  
+`sc_set_god`: Enable GodMode for the NPC you're looking at.<br>
 `sc_unset_god`: Disable GodMode for the NPC you're looking at.
 
 ``` plaintext title="USAGE"
@@ -136,7 +136,7 @@ sc_set_god
 sc_unset_god
 ```
 
-The NPC in GodMode won't take damage in most cases.  
+The NPC in GodMode won't take damage in most cases.<br>
 If you find an NPC in GodMode dies, tell me the reproducible steps, and I'll try to fix that situation.
 
 !!! warning "Do not use these commands as console!"
@@ -151,7 +151,7 @@ If you find an NPC in GodMode dies, tell me the reproducible steps, and I'll try
 
 ## sc_heal|overheal { #sc_heal }
 
-`sc_heal`: Heal player.  
+`sc_heal`: Heal player.<br>
 `sc_overheal`: Overheal(1) player.
 { .annotate }
 
@@ -182,8 +182,8 @@ sc_reload
 
 ## sc_remove, sc_remove_all|constraints { #sc_remove }
 
-`sc_remove`: Remove the entity you are looking at.  
-`sc_remove_all`: Remove every entity that is connected to the entity you are looking at.  
+`sc_remove`: Remove the entity you are looking at.<br>
+`sc_remove_all`: Remove every entity that is connected to the entity you are looking at.<br>
 `sc_remove_constraints`: Remove constraints from the entity you are looking at.
 
 ``` plaintext title="USAGE"
@@ -213,11 +213,11 @@ sc_setspeed <all|duck|run|slow|walk> <fast|reset> [player name]
 
 You can omit 'player name' to change your speed.
 
-* duck: speed when the player crouches using ++ctrl++(`+duck`).  
+* duck: speed when the player crouches using ++ctrl++(`+duck`).<br>
     fast: `0.8`, reset: `0.3`
-* run: speed when the player runs using ++shift++(`+speed`).  
+* run: speed when the player runs using ++shift++(`+speed`).<br>
     fast: `600`, reset: `400`
-* slow: speed when the player walks using ++alt++(`+walk`).  
+* slow: speed when the player walks using ++alt++(`+walk`).<br>
     fast: `150`, reset: `100`
-* walk: speed when the player walks without using any modifier keys.  
+* walk: speed when the player walks without using any modifier keys.<br>
     fast: `300`, reset: `200`
