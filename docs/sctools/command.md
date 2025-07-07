@@ -221,3 +221,15 @@ You can omit 'player name' to change your speed.
     fast: `150`, reset: `100`
 * walk: speed when the player walks without using any modifier keys.<br>
     fast: `300`, reset: `200`
+
+## sc_toggle_freeze
+
+Freeze the entity you are looking at.
+
+``` plaintext title="USAGE"
+sc_toggle_freeze
+```
+
+!!! warning "Do not use these commands as console!"
+
+    Because these commands require a valid player to get an entity, you must run them as a player!
