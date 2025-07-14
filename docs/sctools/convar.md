@@ -2,15 +2,17 @@
 
 ## sc_auto_flashlight
 
-Automatically enable flashlights for players when they join.
+Automatically enable flashlight to players with bitflag.
 
 ``` plaintext title="USAGE"
-sc_auto_flashlight <0|1|2>
+sc_auto_flashlight <bitflag = 0>
 ```
 
-* 0: Disable (default)
-* 1: SuperAdmin only
-* 2: Everyone
+The `bitflag` consist of these values:
+
+* 0|1: Disable | Enable
+* 0|2: Super Admin Only | All Players
+* 0|4: Do not print message | Print verbose message
 
 <h3>See also</h3>
 
@@ -19,7 +21,7 @@ sc_auto_flashlight <0|1|2>
 ## sc_auto_god_npc, sc_auto_god_sadmin { #sc_auto_god }
 
 `sc_auto_god_npc`: Enable [GodMode](#sc_auto_god_mode) for 'NPCs'(2) in 'campaign maps'(3) automatically.<br>
-`sc_auto_god_sadmin`: Enable [GodMode](#sc_auto_god_mode) for players in the 'superadmin' usergroup automatically.
+`sc_auto_god_sadmin`: Enable [GodMode](#sc_auto_god_mode) for players in the 'superadmin' usergroup automatically with bitflag.
 { .annotate }
 
 1.    Either God or Buddha mode
@@ -28,11 +30,16 @@ sc_auto_flashlight <0|1|2>
 
 ``` plaintext title="USAGE"
 sc_auto_god_npc <0|1>
-sc_auto_god_sadmin <0|1>
+sc_auto_god_sadmin <bitflag = 0>
 ```
 
-* 0: Disable automatic GodMode (default)
-* 1: Enable automatic GodMode
+* 0: Disable automatic GodMode for NPC (default)
+* 1: Enable automatic GodMode for NPC
+
+The `bitflag` consist of these values:
+
+* 0|1: Disable | Enable
+* 0|2: Do not print message | Print verbose message
 
 <h3>See also</h3>
 

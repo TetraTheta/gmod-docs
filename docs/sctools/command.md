@@ -51,10 +51,10 @@ sc_clean <all|ammo|debris|decals|gibs|powerups|ragdolls|small|weapons>
 Enable flashlights for the given player.
 
 ``` plaintext title="USAGE"
-sc_flashlight <player name>
+sc_flashlight [player name]
 ```
 
-You must specify player even though you want to enable flashlight yourself.
+You can omit 'player name' to enable flashlight for yourself.
 
 <h3>See also</h3>
 
