@@ -1,10 +1,26 @@
 # SC Tools Command
 
-SC Tools provides useful commands.
+SC Tools provides SuperAdmin-oriented console commands. Unless a command says otherwise, it must be run by a SuperAdmin player or by the server console.
 
-Before you use these, you must configure SC Tools by changing [Console Variables](convar.md) to make them work as you want.
+Many player-targeting commands accept a partial player name. If the player name is omitted, the command usually targets the command caller.
 
-For security reasons, unless specified, these commands are only usable by players who are in the SuperAdmin usergroup.
+## Silent Variants
+
+Several commands have a `_s` suffix, such as `sc_heal_s` or `sc_clean_s`. These perform the same action but suppress the normal chat or HUD message.
+
+| Normal command | Silent command |
+| --- | --- |
+| `sc_clean` | `sc_clean_s` |
+| `sc_drop_weapon` | `sc_drop_weapon_s` |
+| `sc_flashlight` | `sc_flashlight_s` |
+| `sc_gca` | `sc_gca_s` |
+| `sc_god` | `sc_god_s` |
+| `sc_heal` | `sc_heal_s` |
+| `sc_overheal` | `sc_overheal_s` |
+| `sc_remove_weapon` | `sc_remove_weapon_s` |
+| `sc_set_god` | `sc_set_god_s` |
+| `sc_setspeed` | `sc_setspeed_s` |
+| `sc_unset_god` | `sc_unset_god_s` |
 
 ## sc_clean
 
@@ -14,177 +30,95 @@ Remove objects from the current map.
 sc_clean <all|ammo|debris|decals|gibs|powerups|ragdolls|small|weapons>
 ```
 
-`sc_clean` cleans these things:
+| Target | Removes |
+| --- | --- |
+| `all` | Every cleanup category listed below. |
+| `ammo` | HL2 ammunition entities. |
+| `debris` | `prop_physics` entities with the Debris spawnflag. |
+| `decals` | Client-side decals. |
+| `gibs` | Server-side gib entities. |
+| `powerups` | Health kits, health vials, and suit batteries. |
+| `ragdolls` | Server-side `prop_ragdoll` and client-side ragdolls. |
+| `small` | Props listed in `small_model.txt` or under `small_model_dir.txt`. |
+| `weapons` | HL2 weapon entities. |
 
-* `ammo`: Ammunition entities.
-    * `item_ammo_357`, `item_ammo_357_large`
-    * `item_ammo_ar2`, `item_ammo_ar2_altfire`, `item_ammo_ar2_large`
-    * `item_ammo_crossbow`
-    * `item_ammo_pistol`, `item_ammo_pistol_large`
-    * `item_ammo_smg1`, `item_ammo_smg1_grenade`, `item_ammo_smg1_large`
-    * `item_box_buckshot`
-    * `item_rpg_round`
-* `debris`: `prop_physics` entities with 'Debris' spawnflag.
-* `decals`: Client-side decals.
-* `gibs`: `gib` entities.
-* `powerups`: Entities that are related to health and HEV suit batteries.
-    * `item_battery`
-    * `item_healthkit`, `item_healthvial`
-* `ragdolls`: Both server-side ragdolls(`prop_ragdoll`) and client-side ragdolls.
-* `small`: ['Small objects'](feature.md#small-objects).
-* `weapons`: Weapon entities.
-    * `weapon_357`, `weapon_ar2`, `weapon_bugbait`, `weapon_crossbow`, `weapon_crowbar`, `weapon_frag`, `weapon_pistol`, `weapon_rpg`, `weapon_shotgun`, `weapon_slam`, `weapon_smg1`, `weapon_stunstick`
+!!! bug "Known issue"
 
-!!! bug "Known Issue"
+    Running `sc_clean` repeatedly in a very short time can print duplicate messages.
 
-    If you run the `sc_clean` command rapidly, you'll get duplicated messages.
+## sc_drop_weapon
 
-<h3>See also</h3>
+Drop the weapon that the target player is currently holding.
 
-* [Config `small_model.txt`](config.md#small_model)
-* [Config `small_model_dir.txt`](config.md#small_model_dir)
-* [ConVar `sc_remove_effect`](convar.md#sc_remove_effect)
-* [Feature 'Small Objects'](feature.md#small-objects)
+``` plaintext title="USAGE"
+sc_drop_weapon [player name]
+```
 
 ## sc_flashlight
 
-Enable flashlights for the given player.
+Enable the flashlight for the target player.
 
 ``` plaintext title="USAGE"
 sc_flashlight [player name]
 ```
 
-You can omit 'player name' to enable flashlight for yourself.
-
-<h3>See also</h3>
-
-* [ConVar `sc_auto_flashlight`](convar.md#sc_auto_flashlight)
-
 ## sc_gca
 
-Refill the ammo of the weapon that the given player is holding.
+Refill the ammunition used by the weapon that the target player is currently holding.
 
 ``` plaintext title="USAGE"
 sc_gca [player name]
 ```
 
-You can omit 'player name' to refill your ammunition.
-
 ## sc_glow_add|remove_class|model|name { #sc_glow }
 
-`sc_glow_add_class`: Make entities with given class to glow<br>
-`sc_glow_add_model`: Make entities with given model to glow<br>
-`sc_glow_add_name`: Make entities with given targetname to glow
-
-<div class="annotate" markdown>
+Manage persistent server-side glow filters.
 
 ``` plaintext title="USAGE"
-sc_glow_add_class <class name>(1)
-sc_glow_add_model <model path>(2)
+sc_glow_add_class <class name>
+sc_glow_remove_class <class name>
+sc_glow_add_model <model path>
+sc_glow_remove_model <model path>
 sc_glow_add_name <targetname>
-```
-
-</div>
-
-1.    This must be valid entity class name.<br>
-      Check [Valve Developer Community](https://developer.valvesoftware.com/wiki/Main_Page) for the class name lookup.
-2.    Supports `*` wildcard at the end of the path.<br>
-      `models/props/cs_office/trash_can*` includes `models/props/cs_office/trash_can_p4.mdl`.
-
-`sc_glow_remove_class`: Stop entities with given class from glowing<br>
-`sc_glow_remove_model`: Stop entities with given model from glowing<br>
-`sc_glow_remove_name`: Stop entities with given targetname from glowing
-
-<div class="annotate" markdown>
-
-``` plaintext title="USAGE"
-sc_glow_remove_class <class name>(1)
-sc_glow_remove_model <model path>(2)
 sc_glow_remove_name <targetname>
 ```
 
-</div>
-
-1.    This must be valid entity class name.<br>
-      Check [Valve Developer Community](https://developer.valvesoftware.com/wiki/Main_Page) for the class name lookup.
-2.    Supports `*` wildcard at the end of the path.<br>
-      `models/props/cs_office/trash_can*` includes `models/props/cs_office/trash_can_p4.mdl`.
-
-<h3>See also</h3>
-
-* [Feature 'Highlight Entities'](feature.md#highlight-entities)
+`sc_glow_add_model` and `sc_glow_remove_model` support a `*` wildcard at the end of the path. For example, `models/props/cs_office/trash_can*` matches every trash can model under that prefix.
 
 ## sc_god, sc_set|unset_god { #sc_god }
 
-`sc_god`: Toggle GodMode for the player.
+Toggle GodMode for a player, or mark the NPC you are looking at as protected.
 
 ``` plaintext title="USAGE"
 sc_god [player name]
-```
-
-The player in GodMode won't take any damage. It is the same as running `god` on the console.
-
-You can omit 'player name' to toggle your GodMode.
-
-***
-
-`sc_set_god`: Enable GodMode for the NPC you're looking at.<br>
-`sc_unset_god`: Disable GodMode for the NPC you're looking at.
-
-``` plaintext title="USAGE"
 sc_set_god
 sc_unset_god
 ```
 
-The NPC in GodMode won't take damage in most cases.<br>
-If you find an NPC in GodMode dies, tell me the reproducible steps, and I'll try to fix that situation.
+`sc_set_god` and `sc_unset_god` require a valid player caller because the command uses the caller's trace target.
 
-!!! warning "Do not use these commands as console!"
+## sc_heal, sc_overheal { #sc_heal }
 
-    Because these commands require a valid player to get an entity, you must run them as a player!
-
-<h3>See also</h3>
-
-* [ConVar `sc_auto_god_npc`](convar.md#sc_auto_god)
-* [ConVar `sc_auto_god_sadmin`](convar.md#sc_auto_god)
-* [Feature 'Auto GodMode'](feature.md#auto-godmode)
-
-## sc_heal|overheal { #sc_heal }
-
-`sc_heal`: Heal player.<br>
-`sc_overheal`: Overheal(1) player.
-{ .annotate }
-
-1.    Heal player and refills the HEV suit battery.
+Heal the target player.
 
 ``` plaintext title="USAGE"
 sc_heal [player name]
 sc_overheal [player name]
 ```
 
-You can omit 'player name' to heal yourself.
+`sc_heal` restores health. `sc_overheal` also refills the HEV suit battery.
 
 ## sc_reload
 
-Reload the SC Tools configurations.
+Reload SC Tools configuration files from `data/sctools/`.
 
 ``` plaintext title="USAGE"
 sc_reload
 ```
 
-<h3>See also</h3>
+## sc_remove, sc_remove_all, sc_remove_constraints { #sc_remove }
 
-* [Config `auto_god_map.txt`](config.md#auto_god_map)
-* [Config `auto_god_npc.txt`](config.md#auto_god_npc)
-* [Config `npc_disable_input.txt`](config.md#npc_disable_input)
-* [Config `small_model.txt`](config.md#small_model)
-* [Config `small_model_dir.txt`](config.md#small_model_dir)
-
-## sc_remove, sc_remove_all|constraints { #sc_remove }
-
-`sc_remove`: Remove the entity you are looking at.<br>
-`sc_remove_all`: Remove every entity that is connected to the entity you are looking at.<br>
-`sc_remove_constraints`: Remove constraints from the entity you are looking at.
+Remove or detach the entity you are looking at.
 
 ``` plaintext title="USAGE"
 sc_remove
@@ -192,44 +126,50 @@ sc_remove_all
 sc_remove_constraints
 ```
 
-When the NPC is removed, it will perform a few actions to stop what it was doing.
+`sc_remove_all` removes constrained entities connected to the traced entity. `sc_remove_constraints` only removes constraints.
 
-!!! warning "Do not use these commands as console!"
+These commands require a valid player caller because the command uses the caller's trace target.
 
-    Because these commands require a valid player to get an entity, you must run them as a player!
+## sc_remove_weapon
 
-<h3>See also</h3>
+Remove the weapon that the target player is currently holding.
 
-* [Config `npc_disable_input.txt`](config.md#npc_disable_input)
-* [ConVar `sc_remove_effect`](convar.md#sc_remove_effect)
+``` plaintext title="USAGE"
+sc_remove_weapon [player name]
+```
+
+## sc_setservercvar
+
+Change a whitelisted replicated server ConVar.
+
+``` plaintext title="USAGE"
+sc_setservercvar <convar> <value>
+```
+
+This command is used by the spawnmenu settings UI. It clamps known numeric values before applying them and rejects ConVars that were not registered by SC Tools or SC Weapons.
 
 ## sc_setspeed
 
-Set a player's speed.
+Set a player's movement speed preset.
 
 ``` plaintext title="USAGE"
 sc_setspeed <all|duck|run|slow|walk> <fast|reset> [player name]
 ```
 
-You can omit 'player name' to change your speed.
-
-* duck: speed when the player crouches using ++ctrl++(`+duck`).<br>
-    fast: `0.8`, reset: `0.3`
-* run: speed when the player runs using ++shift++(`+speed`).<br>
-    fast: `600`, reset: `400`
-* slow: speed when the player walks using ++alt++(`+walk`).<br>
-    fast: `150`, reset: `100`
-* walk: speed when the player walks without using any modifier keys.<br>
-    fast: `300`, reset: `200`
+| Mode | `fast` | `reset` |
+| --- | ---: | ---: |
+| `duck` | `0.8` | `0.3` |
+| `run` | `600` | `400` |
+| `slow` | `150` | `100` |
+| `walk` | `300` | `200` |
 
 ## sc_toggle_freeze
 
-Freeze the entity you are looking at.
+Toggle physics motion for the entity you are looking at.
 
 ``` plaintext title="USAGE"
 sc_toggle_freeze
 ```
 
-!!! warning "Do not use these commands as console!"
+This command requires a valid player caller because the command uses the caller's trace target.
 
-    Because these commands require a valid player to get an entity, you must run them as a player!

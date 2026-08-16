@@ -118,6 +118,17 @@ SC Tools uses configuration files to change some of its behavior.
     ep2_outland_12a
     # Half-Life 2: Lost Coast
     d2_lostcoast
+    # Mistake of Pythagoras
+    ks_mop_ledoux1
+    ks_mop_ledoux2
+    ks_mop_pita1
+    ks_mop_pita2
+    ks_mop_pita3
+    ks_mop_pita4
+    ks_mop_pita5
+    ks_mop_vill1
+    ks_mop_vill2
+    ks_mop_vill3
     ```
 
 <h3>See also</h3>
@@ -138,6 +149,7 @@ You can get a list of classes for NPCs in the [Valve Developer Community](https:
     # '#' can be either the start of the line or the middle of the line. Any character after '#' will be ignored.
     # Don't add 'npc_citizen' in here! Colonel Odessa Cubbage will be handled automatically.
     # NPCs will only be set to 'god mode' if they are not hostile to the player. But if they become hostile to the player during midgame, you must attack them first to remove their god mode.
+    generic_actor
     npc_alyx
     npc_barney
     npc_eli
@@ -223,6 +235,9 @@ Props with these models will be considered ['small objects'](feature.md#small-ob
     models/props_c17/chair02a.mdl
     models/props_c17/tools_pliers01a.mdl
     models/props_c17/tools_wrench01a.mdl
+    models/props_junk/garbage_glassbottle001a.mdl
+    models/props_junk/garbage_glassbottle002a.mdl
+    models/props_junk/garbage_glassbottle003a.mdl
     models/props_junk/garbage_metalcan001a.mdl
     models/props_junk/garbage_metalcan002a.mdl
     models/props_junk/garbage_milkcarton001a.mdl
@@ -247,7 +262,6 @@ Props with these models will be considered ['small objects'](feature.md#small-ob
     models/props_lab/box01b.mdl
     models/props_lab/clipboard.mdl
     models/props_lab/jar01a.mdl
-    models/props_wasteland/cafeteria_table001a.mdl
     models/props_wasteland/controlroom_chair001a.mdl
     models/props/cs_office/cardboard_box01.mdl
     models/props/cs_office/cardboard_box02.mdl

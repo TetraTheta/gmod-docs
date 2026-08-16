@@ -1,50 +1,62 @@
 # SC Admin Weapons
 
-Every admin weapon shares the same mechanism unless specified.
+SC Admin Weapons are SuperAdmin-only weapons based on `scaw_base`. They are intended for testing, cleanup, and admin intervention rather than balanced play.
 
-## Description
+## Weapon Classes
 
-### Admin MP5SD
+| Weapon | Classname | Base |
+| --- | --- | --- |
+| Admin MP5 | `scaw_mp5` | `scaw_base` |
+| Admin MP5 (Clean) | `scaw_mp5_clean` | `scaw_mp5` |
+| Admin MP5SD | `scaw_mp5sd` | `scaw_base` |
+| Admin MP5SD (Clean) | `scaw_mp5sd_clean` | `scaw_mp5sd` |
+| Admin Pistol | `scaw_pistol` | `scaw_base` |
+| Admin Pistol (Clean) | `scaw_pistol_clean` | `scaw_pistol` |
 
-MP5SD with an underbarrel grenade launcher. The grenade launcher is not used.
+Clean variants suppress bullet hole impact effects.
 
-### Admin Pistol
+## Primary Fire
 
-HL2 Pistol, but with a different texture for distinguishing purposes.
+Primary fire shoots a burst of extremely high-damage bullets without consuming ammo.
 
-***
+| Property | Value |
+| --- | --- |
+| Ammo type | `Pistol` |
+| Damage | `99999999999` |
+| Delay | `0.05` |
+| Force | `1000000` |
+| Shot count | `75` |
+| Spread | `Vector(0.015, 0.015, 0)` |
 
-## Fire Modes
+The weapon can still require at least one pistol round because it uses `Pistol` as its ammo type.
 
-These weapons will fire bullets without consuming any ammunition, regardless of fire mode.
+## Secondary Fire Modes
 
-But you may have to have at least 1 Pistol ammo to fire these weapons.
+Press reload to cycle the secondary fire mode. The active mode is shown in the weapon print name.
 
-### Primary Fire
+| Mode | Value | Description |
+| --- | ---: | --- |
+| Explosion Mode | `1` | Creates an `env_explosion` at the aim point. |
+| Airboat Gun Mode | `2` | Fires seven high-force airboat-style bullets. |
+| Combine Ball Mode | `3` | Fires a fast combine ball. |
+| Crossbow Bolt Mode | `4` | Fires a fast crossbow bolt. |
+| Grenade Mode | `5` | Throws a grenade with a short fuse. |
 
-This is simple. Primary fire will fire powerful bullets very fast and very hard.<br>
-Press LMB and see heavy containers or heavy cars fly away!
+## ConVars
 
-### Secondary Fire
+| ConVar | Default | Range | Description |
+| --- | ---: | --- | --- |
+| `scaw_mp5_default` | `1` | `1`-`5` | Default secondary fire mode for Admin MP5. |
+| `scaw_mp5sd_default` | `1` | `1`-`5` | Default secondary fire mode for Admin MP5SD. |
+| `scaw_pistol_default` | `1` | `1`-`5` | Default secondary fire mode for Admin Pistol. |
+| `scaw_owner_immune_explosion` | `0` | `0`-`1` | Prevents the owner from taking Explosion Mode damage. |
 
-Secondary fire mode has four fire modes. You can change fire mode by pressing the R(Reload) button.
+Server owners can change these through `Utilities > SC Weapons > Settings` or:
 
-#### Explosion Mode
+``` plaintext title="USAGE"
+sc_setservercvar <convar> <value>
+```
 
-This will create explosions where your weapon aims.<br>
-Be aware that these explosions can kill you (and your friends)!
+!!! warning "Explosion Mode can hurt the owner"
 
-#### Airboat Gun Mode
-
-Sometimes, explosions are not enough. In that case, you can fire an Airboat Gun.<br>
-It is highly effective to combine helicopters!
-
-#### Combine Ball Mode
-
-Tired of charging AR2 Alt Fire to shoot combine balls? This fire mode will cover you.<br>
-With this, you can fire a very fast combine ball without any limitation.
-
-#### Grenade Mode
-
-Do you love spamming grenades? This will do the job for you much faster!<br>
-Motivated by [this video](http://youtu.be/LJDTgsXsP0k).
+    Set `scaw_owner_immune_explosion` to `1` if you want admin weapons to be safer during close-range cleanup.

@@ -1,3 +1,3 @@
 @echo off
-title VENV
-cmd /K venv\Scripts\activate.bat
+title GModDocs
+uv run python

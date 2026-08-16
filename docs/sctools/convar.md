@@ -1,234 +1,198 @@
 # SC Tools Console Variable
 
+SC Tools uses replicated server ConVars for shared behavior and client ConVars for local-only effects. Server values can be changed from the console or through the spawnmenu settings page with `sc_setservercvar`.
+
+## Server ConVars
+
+| ConVar | Default | Range | Description |
+| --- | ---: | --- | --- |
+| `sc_auto_flashlight` | `0` | `0`-`7` | Automatically enable flashlights by bitflag. |
+| `sc_auto_god_mode` | `0` | `0`-`1` | Protection type used by automatic GodMode. |
+| `sc_auto_god_npc` | `0` | `0`-`1` | Protect configured NPCs on configured maps. |
+| `sc_auto_god_sadmin` | `0` | `0`-`3` | Protect SuperAdmins by bitflag. |
+| `sc_boost_speed_modifier` | `1.0` | `1.0`-`10.0` | Multiplier for crouch and ladder boost speed. |
+| `sc_change_sound_pitch` | `0` | `0`-`1` | Adjust sound pitch when game speed changes. |
+| `sc_disable_obstacle` | `0` | `0`-`1` | Disable collisions for configured small props. |
+| `sc_disable_player_collision` | `0` | `0`-`1` | Disable player-to-player collision. |
+| `sc_disconnect_mode` | `0` | `0`-`1` | Re-enable map-triggered `disconnect` behavior. |
+| `sc_glow_class` | empty | string | Entity class glow filter. |
+| `sc_glow_model` | empty | string | Entity model glow filter. |
+| `sc_glow_name` | empty | string | Entity targetname glow filter. |
+| `sc_remove_effect` | `0` | `0`-`1` | Effect used when SC Tools removes entities. |
+
+## Client ConVars
+
+| ConVar | Default | Range | Description |
+| --- | ---: | --- | --- |
+| `env_hudhint_enable` | `1` | `0`-`1` | Show `env_hudhint` notification messages. |
+| `sc_bshot_effect` | `0` | `0`-`3` | Bodyshot feedback mode. |
+| `sc_dynamic_fire` | `0` | `0`-`1` | Enable local dynamic fire effects. |
+| `sc_hshot_effect` | `0` | `0`-`3` | Headshot feedback mode. |
+| `snd_bshotvolume` | `1.0` | `0.0`-`1.0` | Bodyshot sound volume. |
+| `snd_hshotvolume` | `1.0` | `0.0`-`1.0` | Headshot sound volume. |
+
 ## sc_auto_flashlight
 
-Automatically enable flashlight to players with bitflag.
+Automatically enable flashlights for players.
 
 ``` plaintext title="USAGE"
 sc_auto_flashlight <bitflag = 0>
 ```
 
-The `bitflag` consist of these values:
+| Bit | Meaning |
+| ---: | --- |
+| `1` | Enable the feature. |
+| `2` | Apply to all players instead of SuperAdmins only. |
+| `4` | Print verbose messages. |
 
-* 0|1: Disable | Enable
-* 0|2: Super Admin Only | All Players
-* 0|4: Do not print message | Print verbose message
-
-<h3>See also</h3>
-
-* [Command `sc_flashlight`](command.md#sc_flashlight)
+Common values are `0` disabled, `1` SuperAdmins only, `3` all players, `5` SuperAdmins only with messages, and `7` all players with messages.
 
 ## sc_auto_god_npc, sc_auto_god_sadmin { #sc_auto_god }
 
-`sc_auto_god_npc`: Enable [GodMode](#sc_auto_god_mode) for 'NPCs'(2) in 'campaign maps'(3) automatically.<br>
-`sc_auto_god_sadmin`: Enable [GodMode](#sc_auto_god_mode) for players in the 'superadmin' usergroup automatically with bitflag.
-{ .annotate }
-
-1.    Either God or Buddha mode
-2.    NPCs defined in `auto_god_npc.txt`
-3.    Maps defined in `auto_god_map.txt`
+Enable automatic protection.
 
 ``` plaintext title="USAGE"
 sc_auto_god_npc <0|1>
 sc_auto_god_sadmin <bitflag = 0>
 ```
 
-* 0: Disable automatic GodMode for NPC (default)
-* 1: Enable automatic GodMode for NPC
+`sc_auto_god_npc` protects NPCs listed in `auto_god_npc.txt`, but only on maps listed in `auto_god_map.txt`. `sc_auto_god_sadmin` protects players in the `superadmin` usergroup.
 
-The `bitflag` consist of these values:
+`sc_auto_god_sadmin` bitflag values:
 
-* 0|1: Disable | Enable
-* 0|2: Do not print message | Print verbose message
-
-<h3>See also</h3>
-
-* [Config `auto_god_map.txt`](config.md#auto_god_map)
-* [Config `auto_god_npc.txt`](config.md#auto_god_npc)
-* [ConVar `sc_auto_god_mode`](#sc_auto_god_mode)
+| Bit | Meaning |
+| ---: | --- |
+| `1` | Enable the feature. |
+| `2` | Print verbose messages. |
 
 ## sc_auto_god_mode
 
-GodMode provided by SC Tools.
+Choose the protection style used by automatic GodMode.
 
-```plaintext title="USAGE"
+``` plaintext title="USAGE"
 sc_auto_god_mode <0|1>
 ```
 
-* 0: 'Buddha Mode' which only prevent death (default)
-* 1: 'God Mode' which prevents every type of damage
-
-<h3>See also</h3>
-
-* [ConVar `sc_auto_god_npc`, `sc_auto_god_sadmin`](#sc_auto_god)
+| Value | Mode |
+| ---: | --- |
+| `0` | Buddha mode: damage is allowed, but death is prevented. |
+| `1` | God mode: damage is blocked. |
 
 ## sc_boost_speed_modifier
 
 Multiplier for boost speed.
 
 ``` plaintext title="USAGE"
-sc_boost_speed_modifier <1.0 ~ 10.0>
+sc_boost_speed_modifier <1.0-10.0>
 ```
 
-Default value: `1.0`
-
-<h3>See also</h3>
-
-* [Feature 'Boost Speed'](feature.md#boost-speed)
+The value is rounded to one decimal place when changed through `sc_setservercvar`.
 
 ## sc_change_sound_pitch
 
-Adjust speed/pitch of sound based on game's speed.
+Adjust sound speed and pitch when the game speed changes.
 
 ``` plaintext title="USAGE"
 sc_change_sound_pitch <0|1>
 ```
 
-<h3>See also</h3>
-
-* [Feature 'Change Sound Speed'](feature.md#change-sound-speed)
-
 ## sc_disable_obstacle
 
-Disable collision checking for obstacle objects.
+Disable collisions for configured small props.
 
 ``` plaintext title="USAGE"
 sc_disable_obstacle <0|1>
 ```
 
-* 0: Enable collision check (default)
-* 1: Disable collision check
-
-<h3>See also</h3>
-
-* [Config `small_model.txt`](config.md#small_model)
-* [Config `small_model_dir.txt`](config.md#small_model_dir)
-* [Feature 'Small Objects'](feature.md#small-objects)
-
 ## sc_disable_player_collision
 
-Disable player-to-player collisions.
+Disable player-to-player collision.
 
 ``` plaintext title="USAGE"
 sc_disable_player_collision <0|1>
 ```
 
-* 0: Enable collision check (default)
-* 1: Disable collision check
-
-<h3>See also</h3>
-
-* [Feature 'Disable Collision'](feature.md#disable-collision)
-
-## sc_disable_red_death
-
-Remove the red overlay from the death screen.
-
-``` plaintext title="USAGE"
-sc_disable_red_death <0|1>
-```
-
-* 0: Enable the red overlay (default)
-* 1: Remove the red overlay
-
-!!! info "This is client ConVar!"
-
-    This console variable won't be affected or affect the server's value.  
-    Clients can change this value to fit their taste.
-
-<h3>See also</h3>
-
-* [Feature 'Disable Red Death Overlay'](feature.md#disable-red-death-overlay)
-
 ## sc_disconnect_mode
 
-Mimic how the `disconnect` console command works in a Singleplay game.
+Mimic map-triggered `disconnect` behavior.
 
 ``` plaintext title="USAGE"
 sc_disconnect_mode <0|1>
 ```
 
-| Server Type         | `sc_disconnect_mode 0` | `sc_disconnect_mode 1`                   |
-| :-----------------: | :--------------------: | :--------------------------------------: |
-| Singleplay (Listen) | Show message           | Disconnect                               |
-| Multiplay (Listen)  | Show message           | Host: Show message<br>Client: Disconnect |
-| Dedicated           | Show message           | Disconnect                               |
+| Server type | `0` | `1` |
+| --- | --- | --- |
+| Singleplayer listen server | Show a message. | Disconnect. |
+| Multiplayer listen server | Show a message. | Host: show a message. Client: disconnect. |
+| Dedicated server | Show a message. | Disconnect. |
 
-<h3>See also</h3>
+## sc_glow_class, sc_glow_model, sc_glow_name
 
-* [Feature 'Restore `disconnect`'](feature.md#restore-disconnect)
-
-## sc_dynamic_fire
-
-Enable dynamic fire.
+Store glow filters for class names, model paths, and targetnames.
 
 ``` plaintext title="USAGE"
-sc_dynamic_fire <0|1>
+sc_glow_class <value>
+sc_glow_model <value>
+sc_glow_name <value>
 ```
 
-* 0: Disable Dynamic Fire (default)
-* 1: Enable Dynamic Fire
-
-!!! info "This is client ConVar!"
-
-    This console variable won't be affected or affect the server's value.  
-    Clients can change this value to fit their taste.
+Prefer the `sc_glow_add_*` and `sc_glow_remove_*` commands unless you need to overwrite the raw stored value.
 
 ## sc_remove_effect
 
-Entity remove effect type.
+Choose the effect used when SC Tools removes entities.
 
 ``` plaintext title="USAGE"
 sc_remove_effect <0|1>
 ```
 
-* 0: Remove effect from Toolgun Remove mode (default)
-* 1: Dissolve
+| Value | Effect |
+| ---: | --- |
+| `0` | Toolgun remove effect. |
+| `1` | Dissolve when the entity supports it; otherwise fall back to remove. |
 
-!!! info "Not every entity can be dissolved"
-    
-    Not every entity is dissolvable. If you try to dissolve them, they will not have any dissolve effect and just disappear.  
-    In that case, SC Tools applies the remove effect instead, because it should work for every entity.
+## env_hudhint_enable
 
-<h3>See also</h3>
+Show or hide `env_hudhint` notifications locally.
 
-* [Command `sc_clean`](command.md#sc_clean)
-* [Command `sc_remove`, `sc_remove_all`](command.md#sc_remove)
+``` plaintext title="USAGE"
+env_hudhint_enable <0|1>
+```
 
 ## sc_bshot_effect, sc_hshot_effect { #sc_shot_effect }
 
-`sc_bshot_effect`: Enable the bodyshot effect (Sound, UI).<br>
-`sc_hshot_effect`: Enable the headshot effect (Sound, UI).
+Enable bodyshot and headshot feedback locally.
 
 ``` plaintext title="USAGE"
-sc_bshot_effect <0 ~ 3>
-sc_hshot_effect <0 ~ 3>
+sc_bshot_effect <0-3>
+sc_hshot_effect <0-3>
 ```
 
-* 0: Disbale
-* 1: Sound only
-* 2: UI only
-* 3: Both
+| Value | Effect |
+| ---: | --- |
+| `0` | Disabled. |
+| `1` | Sound only. |
+| `2` | UI only. |
+| `3` | Sound and UI. |
 
-!!! bug "Known Issue"
+## sc_dynamic_fire
 
-    Only sound effect is available. I'll work on the UI part soon™.
+Enable local dynamic fire effects.
+
+``` plaintext title="USAGE"
+sc_dynamic_fire <0|1>
+```
 
 ## snd_bshotvolume, snd_hshotvolume { #snd_shotvolume }
 
-`snd_bshotvolume`: Volume of the bodyshot sound effect.<br>
-`snd_hshotvolume`: Volume of the headshot sound effect.
+Set local shot feedback volume.
 
 ``` plaintext title="USAGE"
-snd_bshotvolume <0.0 ~ 1.0>
-snd_hshotvolume <0.0 ~ 1.0>
+snd_bshotvolume <0.0-1.0>
+snd_hshotvolume <0.0-1.0>
 ```
 
-!!! info "Do not set this value to `0.0`"
-    
-    If you set this volume as `0.0`, it will be interpreted as `1.0` by the engine.
+!!! info "Avoid `0.0` for Source sound volumes"
 
-<h3>See also</h3>
+    Source can treat `0.0` as full volume for some sound paths. Disable the feedback ConVar instead when you want no sound.
 
-* [ConVar `sc_bshot_effect`](#sc_shot_effect)
-* [ConVar `sc_hshot_effect`](#sc_shot_effect)
