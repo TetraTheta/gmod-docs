@@ -33,6 +33,51 @@ Players can disable these messages locally:
 env_hudhint_enable 0
 ```
 
+## game_text
+
+`game_text` is a GLua implementation of MapBase's non-localized HUD text entity. It displays text on player's screens through a client HUD renderer.
+
+The common fields and inputs follow Garry's Mod `base.fgd`; MapBase additions include `SetFont`, `/n` newline replacement, and the `font` and `autobreak` keyvalues.
+
+### Keyvalues
+
+| Keyvalue | Description |
+| --- | --- |
+| `autobreak` | `1` or `true` wraps long lines on the client. |
+| `channel` | Text Channel. Up to eight `game_text` messages can be shown at once; a new message overwrites the active message on the same channel. |
+| `color` | Color1, the primary text color as `R G B`, with optional alpha. |
+| `color2` | Color2 (Scan), the color for the letter being scanned when Text Effect is `Scan Out`. |
+| `effect` | Text Effect: `0` Fade In/Out, `1` Credits, `2` Scan Out. |
+| `fadein` | Fade in Time, or character scan time, in seconds. |
+| `fadeout` | Fade Out Time in seconds after the hold time has expired. |
+| `font` | Optional ClientScheme font name such as `CenterPrintText` or `HudHintTextLarge`. Empty uses `CenterPrintText`. |
+| `fxtime` | Scan time for the Scan Out effect. |
+| `holdtime` | Hold Time in seconds after fading in, before fade-out begins. |
+| `master` | Stored compatibility keyvalue from `base.fgd`; SC Tools does not emulate legacy master activation. |
+| `message` | Message Text to display onscreen. MapBase-style `/n` sequences are converted to line breaks. |
+| `spawnflags` | Spawnflag bitfield. |
+| `targetname` | Entity targetname. |
+| `x` | X position from `0` left to `1` right; `-1` centers the text. |
+| `y` | Y position from `0` top to `1` bottom; `-1` centers the text. |
+
+### Spawnflags
+
+| Flag | Value | Behavior |
+| --- | ---: | --- |
+| All players | `1` | Displays the message to every connected player. Otherwise it displays to the activator, or to the single player in singleplayer. |
+
+### Inputs
+
+| Input | Description |
+| --- | --- |
+| `Display` | Displays the message text. |
+| `SetFont` | Sets the ClientScheme font name. |
+| `SetPosX` | Sets the text position on the screen (X Axis). |
+| `SetPosY` | Sets the text position on the screen (Y Axis). |
+| `SetText` | Sets the text to display and converts `/n` to line breaks. |
+| `SetTextColor` | Sets the primary text color. |
+| `SetTextColor2` | Sets color of the transition text. |
+
 ## sc_changelevel
 
 `sc_changelevel` is a small alternative to map logic that tries to run `map <map name>` through `point_servercommand` or `point_clientcommand`.
