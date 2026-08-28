@@ -35,26 +35,28 @@ env_hudhint_enable 0
 
 ## game_text
 
-`game_text` is a GLua implementation of MapBase's non-localized HUD text entity. It displays text on player's screens through a client HUD renderer.
+`game_text` is a compatibility layer for Source and MapBase-style non-localized HUD text. For stock `game_text` behavior, SC Tools lets Garry's Mod's native C++ HUD renderer handle display after normalizing newline sequences. It only falls back to the GLua HUD renderer when MapBase-only features such as `font` or `autobreak` are used, or when `game_text_force_glua` is enabled for testing.
 
-The common fields and inputs follow Garry's Mod `base.fgd`; MapBase additions include `SetFont`, `/n` newline replacement, and the `font` and `autobreak` keyvalues.
+The common fields and inputs follow Garry's Mod `base.fgd`; MapBase additions include `SetFont`, `/n` newline replacement, and the `font` and `autobreak` keyvalues. SC Tools also accepts literal `\n` sequences and converts both forms to real line breaks for the native renderer.
+
+The GLua renderer's default font size is tuned to be as close as possible to the native C++ renderer at 1920x1080. Other resolutions may still show small font-size differences because the native renderer uses Source's VGUI scheme font scaling, while GLua uses `surface.CreateFont`.
 
 ### Keyvalues
 
 | Keyvalue | Description |
 | --- | --- |
-| `autobreak` | `1` or `true` wraps long lines on the client. |
+| `autobreak` | `1` or `true` wraps long lines on the client. This uses the GLua HUD renderer. |
 | `channel` | Text Channel. Up to eight `game_text` messages can be shown at once; a new message overwrites the active message on the same channel. |
 | `color` | Color1, the primary text color as `R G B`, with optional alpha. |
 | `color2` | Color2 (Scan), the color for the letter being scanned when Text Effect is `Scan Out`. |
 | `effect` | Text Effect: `0` Fade In/Out, `1` Credits, `2` Scan Out. |
 | `fadein` | Fade in Time, or character scan time, in seconds. |
 | `fadeout` | Fade Out Time in seconds after the hold time has expired. |
-| `font` | Optional ClientScheme font name such as `CenterPrintText` or `HudHintTextLarge`. Empty uses `CenterPrintText`. |
+| `font` | Optional ClientScheme font name such as `CenterPrintText` or `HudHintTextLarge`. Non-empty values use the GLua HUD renderer. |
 | `fxtime` | Scan time for the Scan Out effect. |
 | `holdtime` | Hold Time in seconds after fading in, before fade-out begins. |
 | `master` | Stored compatibility keyvalue from `base.fgd`; SC Tools does not emulate legacy master activation. |
-| `message` | Message Text to display onscreen. MapBase-style `/n` sequences are converted to line breaks. |
+| `message` | Message Text to display onscreen. MapBase-style `/n` and literal `\n` sequences are converted to line breaks. |
 | `spawnflags` | Spawnflag bitfield. |
 | `targetname` | Entity targetname. |
 | `x` | X position from `0` left to `1` right; `-1` centers the text. |
@@ -74,9 +76,19 @@ The common fields and inputs follow Garry's Mod `base.fgd`; MapBase additions in
 | `SetFont` | Sets the ClientScheme font name. |
 | `SetPosX` | Sets the text position on the screen (X Axis). |
 | `SetPosY` | Sets the text position on the screen (Y Axis). |
-| `SetText` | Sets the text to display and converts `/n` to line breaks. |
+| `SetText` | Sets the text to display and converts `/n` and literal `\n` to line breaks. |
 | `SetTextColor` | Sets the primary text color. |
 | `SetTextColor2` | Sets color of the transition text. |
+
+### Client Option
+
+Players can force the GLua renderer for comparison screenshots:
+
+``` plaintext
+game_text_force_glua 1
+```
+
+The default value is `0`, which prefers native C++ rendering whenever MapBase-only features are not required.
 
 ## sc_changelevel
 

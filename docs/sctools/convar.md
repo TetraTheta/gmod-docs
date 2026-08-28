@@ -25,6 +25,7 @@ SC Tools uses replicated server ConVars for shared behavior and client ConVars f
 | ConVar | Default | Range | Description |
 | --- | ---: | --- | --- |
 | `env_hudhint_enable` | `1` | `0`-`1` | Show `env_hudhint` notification messages. |
+| `game_text_force_glua` | `0` | `0`-`1` | Force `game_text` to use the GLua HUD renderer instead of the native C++ renderer. |
 | `sc_bshot_effect` | `0` | `0`-`3` | Bodyshot feedback mode. |
 | `sc_dynamic_fire` | `0` | `0`-`1` | Enable local dynamic fire effects. |
 | `sc_hshot_effect` | `0` | `0`-`3` | Headshot feedback mode. |
@@ -158,6 +159,21 @@ Show or hide `env_hudhint` notifications locally.
 ``` plaintext title="USAGE"
 env_hudhint_enable <0|1>
 ```
+
+## game_text_force_glua
+
+Force `game_text` display through SC Tools' GLua HUD renderer.
+
+``` plaintext title="USAGE"
+game_text_force_glua <0|1>
+```
+
+| Value | Behavior |
+| ---: | --- |
+| `0` | Prefer Garry's Mod's native C++ `game_text` renderer whenever MapBase-only features are not required. |
+| `1` | Force SC Tools' GLua renderer. Useful for comparing renderer behavior in screenshots. |
+
+The GLua renderer's default font size is tuned to be close to the native C++ renderer at 1920x1080. Other resolutions may show small font-size differences.
 
 ## sc_bshot_effect, sc_hshot_effect { #sc_shot_effect }
 
