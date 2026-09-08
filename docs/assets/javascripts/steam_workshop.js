@@ -1,5 +1,5 @@
 // Modified version of https://github.com/danielbrendel/steamwidgets-js
-const STEAMWIDGETS_WORKSHOP_ENDPOINT = 'https://www.steamwidgets.net'
+const OPEN_GRAPH_API_ENDPOINT = 'https://open-graph-api-coral.vercel.app/api/opengraph'
 
 const parseBool = (value, def) => ['true', 'false', true, false].includes(value) && JSON.parse(value) || def
 
@@ -37,25 +37,25 @@ class SteamWorkshopElem extends HTMLElement {
         let borderImage = ''
         if (styleBorder === 'none') {
           borderRoot = ' style="border-radius:0;"'
-          borderImage = ' style="border-top-left-radius:0;border-bottom-left-radius:0;background-image:url(' + json.data.preview_url + ');"'
+          borderImage = ' style="border-top-left-radius:0;border-bottom-left-radius:0;background-image:url(' + json.image + ');"'
         } else if (styleBorder === null || styleBorder === 'small') {
           borderRoot = ' style="border-radius:4px;"'
-          borderImage = ' style="border-top-left-radius:4px;border-bottom-left-radius:4px;background-image:url(' + json.data.preview_url + ');"'
+          borderImage = ' style="border-top-left-radius:4px;border-bottom-left-radius:4px;background-image:url(' + json.image + ');"'
         } else if (styleBorder === 'max') {
           borderRoot = ' style="border-radius:25px;"'
-          borderImage = ' style="border-top-left-radius:25px;border-bottom-left-radius:25px;background-image:url(' + json.data.preview_url + ');"'
+          borderImage = ' style="border-top-left-radius:25px;border-bottom-left-radius:25px;background-image:url(' + json.image + ');"'
         }
         // description
-        let description = json.data.description.replace(/\[url=.*?\]|\[\/url\]/g, '')
+        let description = json.desc.replace(/\[url=.*?\]|\[\/url\]/g, '')
         if (description.length >= self.DESCRIPTION_MAX_LENGTH) {
           description = description.substr(0, self.DESCRIPTION_MAX_LENGTH - 1) + '…'
         }
         // html
-        let html = `<div class="steam-workshop"${borderRoot}><div class="steam-workshop-preview"${borderImage}></div><div class="steam-workshop-info"><div class="steam-workshop-info-title">${json.data.title}</div><div class="steam-workshop-info-description">${description}</div><div class="steam-workshop-info-footer"><div class="steam-workshop-info-footer-action"><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=${json.data.publishedfileid}" target="_blank"><span>${viewText}</span></a></div></div></div></div>`
+        let html = `<div class="steam-workshop"${borderRoot}><div class="steam-workshop-preview"${borderImage}></div><div class="steam-workshop-info"><div class="steam-workshop-info-title">${json.title}</div><div class="steam-workshop-info-description">${description}</div><div class="steam-workshop-info-footer"><div class="steam-workshop-info-footer-action"><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=${itemId}" target="_blank"><span>${viewText}</span></a></div></div></div></div>`
         self.innerHTML = html
       }
     }
-    req.open('GET', STEAMWIDGETS_WORKSHOP_ENDPOINT + '/api/query/workshop?itemid=' + itemId, true)
+    req.open('GET', OPEN_GRAPH_API_ENDPOINT + '?url=' + encodeURIComponent('https://steamcommunity.com/sharedfiles/filedetails/?id=' + itemId), true)
     req.send()
   }
 }
